@@ -25,6 +25,7 @@ public class AlienDictionary {
 	
 	public String translateWord(String alienWord) {
 		String trad= "Nessuna traduzione";
+		
 		for(WordEnanched w: parole) {
 			if(w.getAlienWord().equals(alienWord))
 				trad = w.ottieniTranslation();
