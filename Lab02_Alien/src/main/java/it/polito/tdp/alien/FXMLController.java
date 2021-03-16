@@ -40,10 +40,14 @@ public class FXMLController {
     @FXML
     void doTranslate(ActionEvent event) {
     	String inserimento = txtParola.getText();
-    	if (inserimento.matches("[a-zA-Z\s]*")) {
+    	if (inserimento.matches("[a-zA-Z?\s]*")) {
 
     		inserimento = inserimento.toLowerCase();
     		if(inserimento.contains(" ")) {
+    			if(inserimento.contains("?")) {
+    				txtRisposta.setText("formato non corretto, non inserire ?");
+    				return;
+    			}
     			String[] campi = inserimento.split(" ");
     			String alien = campi[0];
     			String trad = campi[1];

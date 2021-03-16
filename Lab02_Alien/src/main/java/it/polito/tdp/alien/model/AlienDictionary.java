@@ -24,12 +24,30 @@ public class AlienDictionary {
 	}
 	
 	public String translateWord(String alienWord) {
-		String trad= "Nessuna traduzione";
-		
+		String trad= "";
+		if(alienWord.contains("?")) {
+			System.out.print("devo fare altro");
+			for(WordEnanched w: parole) {
+
+				for(int i=0; i<w.getAlienWord().length();i++)
+				{
+					if(alienWord.length() != w.getAlienWord().length() &&
+							alienWord.charAt(i)!='?' 
+							&& alienWord.charAt(i)!=w.getAlienWord().charAt(i))
+					{
+
+						trad = "Nessuna traduzione";
+					}
+				}
+				trad +=w.getAlienWord() +" tradotto: "+ w.ottieniTranslation();
+			}
+		}
 		for(WordEnanched w: parole) {
 			if(w.getAlienWord().equals(alienWord))
 				trad = w.ottieniTranslation();
 		}
+		if(trad.equals(""))
+			trad="Nessuna traduzione";
 		return trad;
 	}
 
