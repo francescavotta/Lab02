@@ -9,7 +9,7 @@ public class WordEnanched {
 	
 	public WordEnanched(String alienWord, String trad) {
 		this.alienWord = alienWord;
-		translation = new LinkedList();
+		translation = new LinkedList<String>();
 		translation.add(trad);
 	}
 
@@ -28,7 +28,20 @@ public class WordEnanched {
 	public void setTranslation(List<String> translation) {
 		this.translation = translation;
 	}
-	
+
+	public void aggiungiTranslation(String translation) {
+		this.translation.add(translation);
+	}
+
+	public String ottieniTranslation() {
+		String stampa = "";
+		for(String s: this.translation)
+		{
+			stampa += s + "\n";
+		}
+		
+		return stampa;
+	}
 	
 
 }

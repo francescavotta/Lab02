@@ -33,24 +33,27 @@ public class FXMLController {
 
     @FXML
     void doReset(ActionEvent event) {
-
+    	model.reset();
+    	txtRisposta.clear();
+    	txtParola.clear();
     }
 
-    @FXML
     void doTranslate(ActionEvent event) {
     	String inserimento = txtParola.getText();
-    	//if (inserimento.matches("[a-zA-Z]") || inserimento.matches("[\s]")) {
-    	
-    	inserimento = inserimento.toLowerCase();
-    	if(inserimento.contains(" ")) {
-    		String[] campi = inserimento.split(" ");
-    		String alien = campi[0];
-    		String trad = campi[1];
-    		model.addWord(alien, trad);
-    		txtRisposta.setText("Parola inserita al dizionario");
+    	if (inserimento.matches("[a-zA-Z\s]*")) {
+
+    		inserimento = inserimento.toLowerCase();
+    		if(inserimento.contains(" ")) {
+    			String[] campi = inserimento.split(" ");
+    			String alien = campi[0];
+    			String trad = campi[1];
+    			model.addWord(alien, trad);
+    			txtRisposta.setText("Parola inserita al dizionario");
+    		}else {
+    			txtRisposta.setText(model.translateWord(inserimento));
+    		}
     	}else {
-    		txtRisposta.setText(model.translateWord(inserimento));
-    	//}
+    		txtRisposta.setText("Formato non corretto");
     	}
     }
     @FXML
