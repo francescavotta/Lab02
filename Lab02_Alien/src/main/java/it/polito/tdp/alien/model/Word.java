@@ -18,23 +18,6 @@ public class Word {
 		return result;
 	}*/
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Word other = (Word) obj;
-		if (alienWord == null) {
-			if (other.alienWord != null)
-				return false;
-		} else if (!alienWord.equals(other.alienWord))
-			return false;
-		return true;
-	}
-
 	public String getAlienWord() {
 		return alienWord;
 	}
@@ -50,5 +33,17 @@ public class Word {
 	public void setTranslation(String translation) {
 		this.translation = translation;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Word w = (Word) obj;
+		if(this.getAlienWord().equals(w.getAlienWord()) && this.getTranslation().equals(w.getTranslation()))
+			return true;
+		return false;
+	}
 	
+	
+	
+	
+
 }
