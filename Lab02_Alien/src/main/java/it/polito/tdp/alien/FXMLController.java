@@ -37,7 +37,7 @@ public class FXMLController {
     	txtRisposta.clear();
     	txtParola.clear();
     }
-
+    @FXML
     void doTranslate(ActionEvent event) {
     	String inserimento = txtParola.getText();
     	if (inserimento.matches("[a-zA-Z\s]*")) {
