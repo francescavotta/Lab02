@@ -30,6 +30,7 @@ public class WordEnanched {
 	}
 
 	public void aggiungiTranslation(String translation) {
+		if(!this.translation.contains(translation))
 		this.translation.add(translation);
 	}
 
