@@ -39,7 +39,10 @@ public class FXMLController {
     }
     @FXML
     void doTranslate(ActionEvent event) {
-    	String inserimento = txtParola.getText();
+    	String inserimento = txtParola.getText().trim();//posso mettere qua il toLower.
+    	
+    	//controllare se la stringa fosse vuota!
+    	// if(inserimento==null || inserimento.lenght()==0) -> return;
     	if (inserimento.matches("[a-zA-Z?\s]*")) {
 
     		inserimento = inserimento.toLowerCase();
@@ -55,6 +58,7 @@ public class FXMLController {
     			txtRisposta.setText("Parola inserita al dizionario");
     		}else {
     			txtRisposta.setText(model.translateWord(inserimento));
+    			//controllare se la traduzione fosse null-> la parola non è nel dizionario
     		}
     	}else {
     		txtRisposta.setText("Formato non corretto");

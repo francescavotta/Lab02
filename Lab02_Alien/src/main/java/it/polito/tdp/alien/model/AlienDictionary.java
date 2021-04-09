@@ -25,8 +25,9 @@ public class AlienDictionary {
 	
 	public String translateWord(String alienWord) {
 		String trad= "";
+		//nelle regrets il . vale qualsiasi carattere, quindi sostituire il ? con .
 		if(alienWord.contains("?")) {
-			System.out.print("devo fare altro");
+			
 			for(WordEnanched w: parole) {
 
 				for(int i=0; i<w.getAlienWord().length();i++)
